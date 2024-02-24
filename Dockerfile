@@ -11,7 +11,7 @@ RUN --mount=type=cache,sharing=shared,target=/var/cache \
     apt-get update \
     && apt-get install -y eatmydata \
     && eatmydata apt-get install -y autoconf automake autotools-dev bc binfmt-support \
-                                   bison build-essential cpio curl debian-ports-archive-keyring \
+                                   bison build-essential cpio curl debian-archive-keyring \
                                    dosfstools e2fsprogs fdisk flex gawk gcc-riscv64-linux-gnu \
                                    git gperf g++-riscv64-linux-gnu kmod kpartx libexpat-dev \
                                    libgmp-dev libmpc-dev libmpfr-dev libssl-dev \
@@ -46,9 +46,9 @@ ARG KERNEL_COMMIT
 WORKDIR /build
 RUN eatmydata git clone --depth 1 --branch ${KERNEL_TAG} https://github.com/smaeul/linux
 RUN cd linux && eatmydata git checkout ${KERNEL_COMMIT} && cd -
-WORKDIR /build/linux/drivers/net/wireless
-RUN eatmydata git clone --depth 1 https://github.com/YuzukiHD/Xradio-XR829.git
-RUN echo 'obj-$(CONFIG_XR829_WLAN) += Xradio-XR829/' >> Makefile
+#WORKDIR /build/linux/drivers/net/wireless
+#RUN eatmydata git clone --depth 1 https://github.com/YuzukiHD/Xradio-XR829.git
+#RUN echo 'obj-$(CONFIG_XR829_WLAN) += Xradio-XR829/' >> Makefile
 WORKDIR /build/linux
 #RUN git checkout riscv/d1-wip
 #RUN git checkout d1-wip-v5.18-rc4
