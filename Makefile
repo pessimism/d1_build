@@ -35,7 +35,10 @@ prerequisites:
 	sudo aptitude install binfmt-support
 
 qemu:
+	docker create --name dummy d1_build_dock:latest
+	sudo docker cp dummy:/builder/Image.gz ./lichee_rv_dock/
+	docker rm -f dummy
 	sudo qemu-system-riscv64 -m 1G -nographic -machine virt \
-		-kernel Image -append "earlycon=sbi console=ttyS0,115200n8 root=/dev/mmcblk0p2 cma=96M" \
+		-kernel ./lichee_rv_dock/Image.gz -append "earlycon=sbi console=ttyS0,115200n8 root=/dev/mmcblk0p2 cma=96M" \
 		-drive file=./lichee_rv_dock/lichee_rv_dock_gcc_10.2.1_kernel_d1_all.img,format=raw,id=hd0 \
 		-device virtio-blk-device,drive=hd0
