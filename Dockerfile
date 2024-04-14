@@ -1,5 +1,5 @@
 FROM debian:bookworm as builder
-MAINTAINER Tim Molteno "tim@molteno.net"
+LABEL MAINTAINER="Tim Molteno \"tim@molteno.net\""
 ARG DEBIAN_FRONTEND=noninteractive
 ARG DEBIAN_PROXY=""
 
