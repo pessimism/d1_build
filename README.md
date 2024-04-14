@@ -24,6 +24,7 @@ The builds currently contain a handful of standard USB Ethernet drivers, includi
 
 WSL Requires [Kernel 6.1](https://learn.microsoft.com/en-us/community/content/wsl-user-msft-kernel-v6#prerequisites) for loop device bug fixes which impact the build
 
+On WSL
 ```bash
 git clone https://github.com/microsoft/WSL2-Linux-Kernel.git --depth=1 -b linux-msft-wsl-6.1.y
 cd WSL2-Linux-Kernel/
@@ -42,6 +43,16 @@ kernel=C:\\bzImage
 "@
 Set-Content -Path "$env:USERPROFILE\.wslconfig" -Value $content
 ```
+
+The build requires qemu binfmt support working to run riscv executables inside the fs root while running the build container. 
+
+On WSL:
+```bash
+sudo apt -y install qemu qemu-user-static binfmt-support
+sudo update-binfmts --enable
+ls -l /proc/sys/fs/binfmt_misc/
+```
+Make sure a bunch of qemu items are listed there along with WSLInterop.  If this isn't set up properly you will see exec format error message as setup_rootfs is run.
 
 
 ## How to build your own image
