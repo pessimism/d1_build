@@ -14,8 +14,9 @@ mount proc -t proc /proc
 dpkg --configure -a
 umount /proc
 # Needed because we get permissions problems for some reason
-chmod 0666 /dev/null
-
+rm /dev/null
+mknod /dev/null c 1 3
+chmod 666 /dev/null
 #
 # Change root password to 'licheerv'
 #
@@ -43,4 +44,4 @@ systemctl enable systemd-resolved.service
 apt-get clean
 rm -rf /var/cache/*
 find /var/lib/apt/lists -type f -not -name '*.gpg' -print0 | xargs -0 rm -f
-find /var/log -type f -print0 | xargs -0 truncate --size=0
+#find /var/log -type f -print0 | xargs -0 truncate --size=0
