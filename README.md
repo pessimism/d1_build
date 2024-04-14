@@ -20,6 +20,30 @@ This will connect to a notwork called "MyWifi", with password "my-password"
 
 The builds currently contain a handful of standard USB Ethernet drivers, including those for Realtek 100M adapters. Upon connection, Debian will automatically configure the USB device and connect to the network, with no need for manual configuration.
 
+## Building with WSL
+
+WSL Requires [Kernel 6.1](https://learn.microsoft.com/en-us/community/content/wsl-user-msft-kernel-v6#prerequisites) for loop device bug fixes which impact the build
+
+```bash
+git clone https://github.com/microsoft/WSL2-Linux-Kernel.git --depth=1 -b linux-msft-wsl-6.1.y
+cd WSL2-Linux-Kernel/
+sudo apt update && sudo apt install build-essential flex bison libssl-dev libelf-dev bc python3 pahole
+make -j$(nproc) KCONFIG_CONFIG=Microsoft/config-wsl
+sudo make modules_install headers_install
+```
+
+On Host (change username to your username inside the vm) :
+```powershell
+copy-item \\wsl.localhost\Ubuntu\home\steve\WSL2-Linux-Kernel\arch\x86\boot\bzImage c:\
+wsl --shutdown
+$content = @"
+[wsl2]
+kernel=C:\\bzImage
+"@
+Set-Content -Path "$env:USERPROFILE\.wslconfig" -Value $content
+```
+
+
 ## How to build your own image
 
 This is intended to be used on a debian system with docker, and docker-compose installed. Modify the parameters of the build in the file docker-compose.yml such as kernel version and board target. Then issue.
