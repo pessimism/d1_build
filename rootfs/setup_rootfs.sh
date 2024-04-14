@@ -5,7 +5,7 @@
 #
 export DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true
 export LC_ALL=C LANGUAGE=C LANG=C
-#/var/lib/dpkg/info/dash.preinst install
+/var/lib/dpkg/info/bash.preinst install
 /var/lib/dpkg/info/base-passwd.preinst install
 /var/lib/dpkg/info/sgml-base.preinst install
 mkdir -p /etc/sgml
