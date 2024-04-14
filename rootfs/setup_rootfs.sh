@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -x
 #
 #  Author: Tim Molteno tim@molteno.net
 #  (c) 2022
