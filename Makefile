@@ -35,7 +35,7 @@ prerequisites:
 	sudo aptitude install binfmt-support
 
 qemu:
-	cd ~/port; sudo qemu-system-riscv64 -m 1G -nographic -machine virt \
+	sudo qemu-system-riscv64 -m 1G -nographic -machine virt \
 		-kernel Image -append "earlycon=sbi console=ttyS0,115200n8 root=/dev/mmcblk0p2 cma=96M" \
-		-drive file=licheerv.img,format=raw,id=hd0 \
+		-drive file=./lichee_rv_dock/lichee_rv_dock_gcc_10.2.1_kernel_d1_all.img,format=raw,id=hd0 \
 		-device virtio-blk-device,drive=hd0
