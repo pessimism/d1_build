@@ -93,6 +93,6 @@ kpartx -d "${LOOPDEV}"
 losetup -d "${LOOPDEV}"
 
 # Now compress the image
-echo "Compressing the image: ${IMG}"
+#echo "Compressing the image: ${IMG}"
 
-(cd "${OUTPORT}" && xz -T0 "${IMG}")
+#(cd "${OUTPORT}" && xz -T0 "${IMG}")
