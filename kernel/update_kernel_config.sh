@@ -78,7 +78,7 @@ add_config 'CONFIG_USB_RTL8153_ECM' 'm'
 add_config 'CONFIG_SWAP' 'y'
 add_config 'CONFIG_ZSWAP' 'y'
 # Allow systemd getty service
-# add_config 'CONFIG_FHANDLE' 'y'
+add_config 'CONFIG_FHANDLE' 'y'
 
 # The following from https://github.com/DongshanPI/NezhaSTU-ReleaseLinux/blob/master/nezhastu_linux_defconfig
 # add_config 'CONFIG_ARM_SUN50I_R329_MBUS_DEVFREQ' 'y'
