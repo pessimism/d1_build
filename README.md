@@ -48,7 +48,7 @@ The build requires qemu binfmt support working to run riscv executables inside t
 
 On WSL:
 ```bash
-sudo apt -y install qemu qemu-user-static binfmt-support
+sudo apt -y install qemu qemu-user-static qemu-user binfmt-support
 sudo update-binfmts --enable
 ls -l /proc/sys/fs/binfmt_misc/
 ```
