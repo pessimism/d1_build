@@ -95,6 +95,7 @@ add_config 'CONFIG_FHANDLE' 'y'
 
 add_config 'CONFIG_VIDEO_SUNXI' 'y'
 add_config 'CONFIG_VIDEO_SUNXI_CEDRUS' 'y'
+add_config 'CONFIG_SUN8I_DE2_CCU' 'y'
 
 #
 #   Modules for the SPI display
