@@ -44,3 +44,8 @@ apt-get clean
 rm -rf /var/cache/*
 find /var/lib/apt/lists -type f -not -name '*.gpg' -print0 | xargs -0 rm -f
 #find /var/log -type f -print0 | xargs -0 truncate --size=0
+
+#Set default runlevel to multi-user instead of graphical
+systemctl set-default multi-user.target 
+
+touch /etc/machine-id
