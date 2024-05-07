@@ -88,6 +88,7 @@ WORKDIR /build/u-boot
 
 # Make sure we update the device tree and add the overlays
 COPY kernel/update_uboot_config.sh .
+COPY kernel/lichee_rv_dock_defconfig ./configs/
 COPY config/ov_lichee_rv_mini_lcd.dts ./arch/riscv/dts/ov_lichee_rv_mini_lcd.dts
 RUN sed -i '3s/^/dtb-$(CONFIG_TARGET_SUN20I_D1) += ov_lichee_rv_mini_lcd.dtb\n/' ./arch/riscv/dts/Makefile
 RUN cat ./arch/riscv/dts/Makefile
