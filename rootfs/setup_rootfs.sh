@@ -45,9 +45,3 @@ systemctl set-default multi-user.target
 
 #Allow systemd to boot
 touch /etc/machine-id
-
-#Without dash, bash doesn't symlink on its own, so make one
-ln -sf /bin/bash /bin/sh
-
-#Verify symlink present
-ls -la /bin/sh
