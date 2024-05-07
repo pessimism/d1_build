@@ -83,7 +83,7 @@ FROM builder as build_uboot
 ARG UBOOT_TAG
 ARG BOARD
 WORKDIR /build
-RUN eatmydata git clone --depth 1 --branch ${UBOOT_TAG} https://github.com/smaeul/u-boot.git
+RUN eatmydata git clone -b ${UBOOT_TAG} https://github.com/smaeul/u-boot.git
 WORKDIR /build/u-boot
 
 # Make sure we update the device tree and add the overlays
