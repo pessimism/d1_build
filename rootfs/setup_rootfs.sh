@@ -31,17 +31,11 @@ chown rv:rv /home/rv
 # Set password to 'lichee'
 usermod --password "$(echo lichee | openssl passwd -1 -stdin)" rv
 
-# Enable system services
-systemctl enable systemd-resolved.service
-
 # Clean apt cache on the system
 apt-get clean
 rm -rf /var/cache/*
 find /var/lib/apt/lists -type f -not -name '*.gpg' -print0 | xargs -0 rm -f
 #find /var/log -type f -print0 | xargs -0 truncate --size=0
-
-#Set default runlevel to multi-user instead of graphical
-systemctl set-default multi-user.target 
 
 #Allow systemd to boot
 touch /etc/machine-id
