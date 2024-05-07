@@ -11,7 +11,7 @@ services:
             BOARD: lichee_rv_dock
             DISK_MB: 7300
             GNU_TOOLS_TAG: 10.2.1
-            UBOOT_TAG: d1-wip
+            UBOOT_TAG: d1-2022-10-31
             KERNEL_TAG: d1/wip
             KERNEL_COMMIT: "ca67838d84af4c9f85d06311c9e98e1adf46308f"
     volumes:
