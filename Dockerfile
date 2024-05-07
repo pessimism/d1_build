@@ -49,9 +49,9 @@ WORKDIR /build/linux
 #RUN git checkout riscv/d1-wip
 #RUN git checkout d1-wip-v5.18-rc4
 COPY kernel/update_kernel_config.sh .
-RUN ./update_kernel_config.sh defconfig
+RUN ./update_kernel_config.sh nezha_defconfig
 WORKDIR /build
-RUN eatmydata make ARCH=riscv -C linux O=../linux-build defconfig
+RUN eatmydata make ARCH=riscv -C linux O=../linux-build nezha_defconfig
 RUN eatmydata make -j $(nproc) -C linux-build ARCH=riscv $CROSS V=0
 # Files reside in /build/linux-build/arch/riscv/boot/Image.gz
 # RUN make -j $(nproc) -C linux-build ARCH=riscv $CROSS INSTALL_MOD_PATH=/build/modules modules_install

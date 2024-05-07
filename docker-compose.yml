@@ -12,8 +12,8 @@ services:
             DISK_MB: 7300
             GNU_TOOLS_TAG: 10.2.1
             UBOOT_TAG: d1-wip
-            KERNEL_TAG: d1/all
-            KERNEL_COMMIT: ""
+            KERNEL_TAG: d1/wip
+            KERNEL_COMMIT: "ca67838d84af4c9f85d06311c9e98e1adf46308f"
     volumes:
         - './lichee_rv_dock:/outport'
 
